@@ -73,8 +73,9 @@ st.markdown(
 )
 
 st.title("COVID-19 Fake News Detector")
+st.markdown("Enter a tweet or news snippet below to classify its authenticity:")
 user_input = st.text_area(
-    "Enter news snippet here:",
+    "",
     height=150,
     placeholder="Example: Vaccines contain microchips to track people..."
 )
@@ -116,7 +117,7 @@ if st.button("Classify"):
             font-weight: 600;
             margin-top: 20px;
         '>
-            Prediction: <strong>**{label}!**</strong><br>
+            Prediction: <strong>{label}!</strong><br>
             Confidence: {confidence:.2%}
         </div>
         """, unsafe_allow_html=True)
