@@ -1,6 +1,60 @@
 import streamlit as st
+import streamlit as st
+import tensorflow as tf
+from transformers import AutoTokenizer, TFAutoModel
+import numpy as np
 
-st.title("🎈 My new app")
-st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
-)
+# Rebuild the model architecture
+model = TFAutoModel.from_pretrained("distilbert-base-uncased")
+tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
+
+class BERTForClassification(tf.keras.Model):
+    def __init__(self, bert_model):
+        super().__init__()
+        self.bert = bert_model
+        self.fc = tf.keras.layers.Dense(1, activation='sigmoid')
+
+    def call(self, inputs):
+        input_ids = inputs["input_ids"]
+        attention_mask = inputs["attention_mask"]
+        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
+        x = outputs.last_hidden_state[:, 0, :]
+        return self.fc(x)
+
+classifier = BERTForClassification(model)
+
+# Dummy input to build the model's weights
+dummy_inputs = {
+    "input_ids": tf.zeros((1, 100), dtype=tf.int32),
+    "attention_mask": tf.zeros((1, 100), dtype=tf.int32)
+}
+classifier(dummy_inputs)
+
+classifier.load_weights("distilbert_covid_news_weigths.h5")
+
+MAX_LENGTH = 100
+
+# UI
+st.title("Fake News Detector (COVID-19 Edition)")
+user_input = st.text_area("Enter a tweet or news snippet:")
+
+if st.button("Classify"):
+    if user_input.strip() == "":
+        st.warning("Please enter some text.")
+    else:
+        inputs = tokenizer(
+            user_input,
+            return_tensors="tf",
+            padding='max_length',
+            truncation=True,
+            max_length=MAX_LENGTH
+        )
+
+        prediction = classifier.predict({
+            "input_ids": inputs["input_ids"],
+            "attention_mask": inputs["attention_mask"],
+        })
+
+        confidence = prediction.item()
+        label = "Fake" if confidence > 0.5 else "Real"
+        st.success(f"Prediction: **{label}** ({confidence:.2%} confidence)")

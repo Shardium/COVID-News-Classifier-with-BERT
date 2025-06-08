@@ -1,1 +1,5 @@
 streamlit
+tensorflow
+transformers
+scikit-learn
+pandas
