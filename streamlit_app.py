@@ -99,6 +99,7 @@ st.markdown("""
     }
     .stButton>button:hover {
         background-color: #028a57;
+        color: #f5f5f5;
         cursor: pointer;
     }
     .stTextArea>label {
@@ -112,24 +113,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-with st.sidebar:
-    st.header("🧠 About This App")
-    st.markdown("""
-    This app detects whether a COVID-19 related news snippet or tweet is **real or fake** using a fine-tuned DistilBERT model.
-
-    - **Model**: DistilBERT-base-uncased  
-    - **Task**: Binary classification (Real vs Fake)  
-    - **Input**: Text snippet (up to 100 tokens)  
-
-    ⚠️ Please verify important info from trusted sources!
-    """)
-
 st.title("COVID-19 Fake News Detector")
-user_input = st.text_area(
-    "Enter a news snippet below to classify its authenticity:",
-    height=150,
-    placeholder="Example: Vaccines contain microchips to track people..."
-)
 
 st.markdown("""
     This app detects whether a COVID-19 related news snippet or tweet is **real or fake** using a fine-tuned DistilBERT model.
@@ -138,6 +122,12 @@ st.markdown("""
     - **Task**: Binary classification (Real vs Fake)  
     - **Input**: Text snippet (up to 100 tokens)  
     """)
+
+user_input = st.text_area(
+    "Enter a news snippet below to classify its authenticity:",
+    height=150,
+    placeholder="Example: Vaccines contain microchips to track people..."
+)
 
 MAX_LENGTH = 100
 if st.button("Classify"):
