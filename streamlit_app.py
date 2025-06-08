@@ -149,13 +149,11 @@ if st.button("Classify"):
 st.markdown("""
     <hr style="margin-top: 50px;">
     <p style='text-align: center; color: grey;'>
-        Built using Streamlit | ⚠️ Please verify important info from trusted sources! | <a href="https://github.com/Shardium/COVID-News-Classifier-with-BERT" style="color: #4ecdc4; text-decoration: none;" target="_blank">Label</a>
+        Built using Streamlit | ⚠️ Please verify important info from trusted sources! | <a href="https://github.com/Shardium/COVID-News-Classifier-with-BERT" style="color: #4ecdc4; text-decoration: none;" target="_blank">GitHub</a>
     </p>
 """, unsafe_allow_html=True)
 
-# st.markdown("Click [here](https://github.com/Shardium/COVID-News-Classifier-with-BERT) to visit Hugging Face!")
-
-st.markdown(
-    '<a href="https://github.com/Shardium/COVID-News-Classifier-with-BERT" style="color: #4ecdc4; text-decoration: none;" target="_blank">Label</a>',
-    unsafe_allow_html=True
-)
+# st.markdown(
+#     '<a href="https://github.com/Shardium/COVID-News-Classifier-with-BERT" style="color: #4ecdc4; text-decoration: none;" target="_blank">Label</a>',
+#     unsafe_allow_html=True
+# )
