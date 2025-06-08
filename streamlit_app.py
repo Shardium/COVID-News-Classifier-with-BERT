@@ -116,7 +116,7 @@ st.markdown("""
 st.title("COVID-19 Fake News Detector")
 
 st.markdown("""
-    <p>This app detects whether a COVID-19 related news snippet is <strong>real or fake</strong> using a fine-tuned DistilBERT model.</p>
+    <p>This app detects whether a COVID-19 related news snippet is <strong>real or fake</strong> using a fine-tuned <strong>DistilBERT base</strong> model.</p>
     
     <p><strong>Input:</strong> Text snippet (up to 100 tokens)</p>
     <hr>
