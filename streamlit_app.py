@@ -153,7 +153,4 @@ st.markdown("""
     </p>
 """, unsafe_allow_html=True)
 
-st.markdown("""
-    Visible text here.
-    <span style="display:none;">https://github.com/Shardium/COVID-News-Classifier-with-BERT</span>
-""", unsafe_allow_html=True)
+st.markdown("Click [here](https://github.com/Shardium/COVID-News-Classifier-with-BERT) to visit Hugging Face!")
