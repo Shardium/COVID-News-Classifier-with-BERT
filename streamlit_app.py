@@ -73,7 +73,10 @@ st.markdown(
 )
 
 st.title("COVID-19 Fake News Detector")
-user_input = st.text_area("Enter a tweet or news snippet:")
+user_input = st.text_area(
+    height=150,
+    placeholder="Example: Vaccines contain microchips to track people..."
+)
 
 MAX_LENGTH = 100
 if st.button("Classify"):
