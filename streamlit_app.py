@@ -104,7 +104,7 @@ user_input = st.text_area(
     placeholder="Example: Vaccines contain microchips to track people..."
 )
 
-MAX_LENGTH = 100
+MAX_LENGTH = 500
 if st.button("Classify"):
     if user_input.strip() == "":
         st.warning("⚠️ Please enter some text to classify.")
