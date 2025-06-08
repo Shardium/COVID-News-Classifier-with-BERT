@@ -72,7 +72,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("Fake News Detector (COVID-19 Edition)")
+st.title("COVID-19 Fake News Detector")
 user_input = st.text_area("Enter a tweet or news snippet:")
 
 MAX_LENGTH = 100
