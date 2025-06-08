@@ -1,9 +1,16 @@
 import streamlit as st
-import streamlit as st
 import tensorflow as tf
 from transformers import AutoTokenizer, TFAutoModel
 import numpy as np
 import os
+
+st.set_page_config(
+    page_title="ADE News Detections",
+    layout="centered",
+    initial_sidebar_state="auto"
+)
+
+#-----------------------------------------------------------------------------------------------------
 
 # Rebuild the model architecture
 model = TFAutoModel.from_pretrained("distilbert/distilbert-base-uncased")
@@ -24,7 +31,7 @@ class BERTForClassification(tf.keras.Model):
 
 classifier = BERTForClassification(model)
 
-# Dummy input to build the model's weights
+# needs to have this or it breaks idk why
 dummy_inputs = {
     "input_ids": tf.zeros((1, 100), dtype=tf.int32),
     "attention_mask": tf.zeros((1, 100), dtype=tf.int32)
@@ -71,11 +78,6 @@ MAX_LENGTH = 100
 #         st.success(f"Prediction: **{label}** ({confidence:.2%} confidence) | raw confidence: {confidence}")
 
 #----------------------------------------------------------------------------------------------------------
-st.set_page_config(
-    page_title="ADE News Detections",
-    layout="centered",
-    initial_sidebar_state="auto"
-)
 
 st.markdown(
     """
