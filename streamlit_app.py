@@ -149,7 +149,7 @@ if st.button("Classify"):
 st.markdown("""
     <hr style="margin-top: 50px;">
     <p style='text-align: center; color: grey;'>
-        Built using Streamlit | ⚠️ Please verify important info from trusted sources!
+        Built using Streamlit | ⚠️ Please verify important info from trusted sources! | <a href="https://github.com/Shardium/COVID-News-Classifier-with-BERT" style="color: #4ecdc4; text-decoration: none;" target="_blank">Label</a>
     </p>
 """, unsafe_allow_html=True)
 
