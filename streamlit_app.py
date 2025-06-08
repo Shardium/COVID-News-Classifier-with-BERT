@@ -101,6 +101,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+st.markdown("Test text — should be white on dark background")
+
 st.title("Fake News Detector (COVID-19 Edition)")
 user_input = st.text_area("Enter a tweet or news snippet:")
 
