@@ -3,10 +3,13 @@ import streamlit as st
 import tensorflow as tf
 from transformers import AutoTokenizer, TFAutoModel
 import numpy as np
+import os
+
+#https://drive.google.com/file/d/16Qx4-f2pWq-HQMG4txgXk76aKm8ldyCY/view?usp=sharing
 
 # Rebuild the model architecture
-model = TFAutoModel.from_pretrained("distilbert-base-uncased")
-tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
+model = TFAutoModel.from_pretrained("distilbert/distilbert-base-uncased")
+tokenizer = AutoTokenizer.from_pretrained("distilbert/distilbert-base-uncased")
 
 class BERTForClassification(tf.keras.Model):
     def __init__(self, bert_model):
@@ -14,7 +17,7 @@ class BERTForClassification(tf.keras.Model):
         self.bert = bert_model
         self.fc = tf.keras.layers.Dense(1, activation='sigmoid')
 
-    def call(self, inputs):
+    def call(self, inputs, training=False):
         input_ids = inputs["input_ids"]
         attention_mask = inputs["attention_mask"]
         outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
@@ -30,9 +33,19 @@ dummy_inputs = {
 }
 classifier(dummy_inputs)
 
-classifier.load_weights("distilbert_covid_news_weights.h5")
+weights_path = "model_weights.h5"
+if os.path.exists(weights_path):
+    classifier.load_weights(weights_path)
+    st.success("File is found.")
+else:
+    st.warning("Warning: Weights file not found. Model will produce random outputs.")
+
 
 MAX_LENGTH = 100
+
+
+#---------------------------------------------------------------------------------------------------
+
 
 # UI
 st.title("Fake News Detector (COVID-19 Edition)")
