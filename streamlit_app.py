@@ -7,7 +7,6 @@ import os
 st.set_page_config(
     page_title="ADE News Detections",
     layout="centered",
-    initial_sidebar_state="auto"
 )
 
 #-----------------------------------------------------------------------------------------------------
