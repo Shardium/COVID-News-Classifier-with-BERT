@@ -48,34 +48,74 @@ else:
 #---------------------------------------------------------------------------------------------------
 
 # UI
-st.markdown(
-    """
+# st.markdown(
+#     """
+#     <style>
+#     body {
+#         background-color: #2e2e2e;
+#         color: white;
+#     }
+#     .stApp {
+#         background-color: #2e2e2e;
+#         color: white;
+#     }
+#     textarea {
+#         background-color: #444444 !important;
+#         color: white !important;
+#     }
+#     .stTextArea label {
+#         font-size: 20px;
+#         color: white;
+#     }
+#     </style>
+#     """,
+#     unsafe_allow_html=True
+# )
+st.markdown("""
     <style>
-    body {
-        background-color: #2e2e2e;
-        color: white;
-    }
     .stApp {
-        background-color: #2e2e2e;
-        color: white;
+        background-color: #1e1e1e;
+        color: #f5f5f5;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     textarea {
-        background-color: #444444 !important;
-        color: white !important;
+        background-color: #2c2c2c !important;
+        color: #f5f5f5 !important;
+        border-radius: 10px;
+        padding: 12px;
+        font-size: 16px;
+        border: none;
+        resize: vertical;
     }
-    .stTextArea label {
-        font-size: 20px;
+    .stButton>button {
+        background-color: #04AA6D;
         color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 0.5em 1.5em;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+        width: 100%;
+    }
+    .stButton>button:hover {
+        background-color: #028a57;
+        cursor: pointer;
+    }
+    .stTextArea>label {
+        font-size: 18px;
+        color: #f5f5f5;
+        margin-bottom: 8px;
+    }
+    hr {
+        border: 0.5px solid #444444;
     }
     </style>
-    """,
-    unsafe_allow_html=True
-)
+""", unsafe_allow_html=True)
+
 
 st.title("COVID-19 Fake News Detector")
-st.markdown("Enter a tweet or news snippet below to classify its authenticity:")
 user_input = st.text_area(
-    "",
+    "Enter a news snippet below to classify its authenticity:",
     height=150,
     placeholder="Example: Vaccines contain microchips to track people..."
 )
