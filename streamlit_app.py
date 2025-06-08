@@ -82,7 +82,7 @@ user_input = st.text_area(
 MAX_LENGTH = 100
 if st.button("Classify"):
     if user_input.strip() == "":
-        st.warning("Please enter some text.")
+        st.warning("⚠️ Please enter some text to classify.")
     else:
         inputs = tokenizer(
             user_input,
@@ -97,9 +97,29 @@ if st.button("Classify"):
             "attention_mask": inputs["attention_mask"],
         })
 
+        # confidence = prediction.item()
+        # label = "Real" if confidence > 0.5 else "Fake"
+        # st.success(f"Prediction: **{label}** ({confidence:.2%} confidence) | raw confidence: {confidence}")
+
         confidence = prediction.item()
         label = "Real" if confidence > 0.5 else "Fake"
-        st.success(f"Prediction: **{label}** ({confidence:.2%} confidence) | raw confidence: {confidence}")
+        bg_color = "#14532d" if confidence > 0.5 else "#7f1d1d"
+
+        st.markdown(f"""
+        <div style='
+            background-color: {bg_color};
+            padding: 20px;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 20px;
+        '>
+            Prediction: <strong>{label}</strong><br>
+            Confidence: {confidence:.2%}
+        </div>
+        """, unsafe_allow_html=True)
 
 st.markdown("""
     <hr style="margin-top: 50px;">
