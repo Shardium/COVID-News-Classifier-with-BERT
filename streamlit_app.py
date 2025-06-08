@@ -47,6 +47,45 @@ else:
 #---------------------------------------------------------------------------------------------------
 
 # UI
+import streamlit as st
+
+st.sidebar.header("📚 Demo Snippets")
+
+tweets = [
+    "Vaccines contain microchips to track people.",
+    "Wearing masks reduces virus spread.",
+    "COVID-19 was created in a lab."
+]
+
+news_headlines = [
+    "New study confirms vaccine safety.",
+    "Fake cures for COVID-19 circulate online.",
+    "Government implements new health measures."
+]
+
+def copy_to_clipboard(text):
+    # JS to copy text to clipboard
+    st.write(f"""
+        <script>
+        navigator.clipboard.writeText({repr(text)});
+        </script>
+    """, unsafe_allow_html=True)
+
+st.sidebar.subheader("Tweets")
+for i, snippet in enumerate(tweets):
+    st.sidebar.markdown(f"- {snippet}")
+    if st.sidebar.button(f"Copy Tweet #{i+1}"):
+        copy_to_clipboard(snippet)
+        st.sidebar.success("Copied!")
+
+st.sidebar.subheader("News Headlines")
+for i, snippet in enumerate(news_headlines):
+    st.sidebar.markdown(f"- {snippet}")
+    if st.sidebar.button(f"Copy News #{i+1}"):
+        copy_to_clipboard(snippet)
+        st.sidebar.success("Copied!")
+
+
 st.markdown("""
     <style>
     .stApp {
