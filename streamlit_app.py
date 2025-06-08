@@ -120,7 +120,7 @@ st.markdown("""
     
     <p>**Input**: Text snippet (up to 100 tokens)</p>
     <hr>
-    """)
+    """, unsafe_allow_html=True)
 
 user_input = st.text_area(
     "Enter a news snippet below to classify its authenticity:",
