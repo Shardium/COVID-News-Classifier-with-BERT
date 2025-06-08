@@ -89,7 +89,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title("🦠 COVID-19 Fake News Detector")
+st.title("COVID-19 Fake News Detector")
 
 st.markdown("""
     <p>This app detects whether a COVID-19 related news snippet is <strong>real or fake</strong> using a fine-tuned <strong>DistilBERT base</strong> model.</p>
