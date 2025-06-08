@@ -152,7 +152,7 @@ if st.button("Classify"):
 
         confidence = prediction.item()
         label = "Real" if confidence > 0.5 else "Fake"
-        bg_color = "#68c14d" if confidence > 0.5 else "#ba4c6e"
+        bg_color = "#5bb141" if confidence > 0.5 else "#ba4c6e"
 
         st.markdown(f"""
         <div style='
