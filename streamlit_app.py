@@ -30,7 +30,7 @@ dummy_inputs = {
 }
 classifier(dummy_inputs)
 
-classifier.load_weights("distilbert_covid_news_weigths.h5")
+classifier.load_weights("distilbert_covid_news_weights.h5")
 
 MAX_LENGTH = 100
 

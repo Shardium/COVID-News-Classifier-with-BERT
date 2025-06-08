@@ -1,5 +1,3 @@
-distilbert_covid_news_weigths.h5
-
 .streamlit/secrets.toml
 
 # Byte-compiled / optimized / DLL files
