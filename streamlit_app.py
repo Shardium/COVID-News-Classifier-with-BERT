@@ -46,6 +46,61 @@ MAX_LENGTH = 100
 
 
 # UI
+# st.title("Fake News Detector (COVID-19 Edition)")
+# user_input = st.text_area("Enter a tweet or news snippet:")
+
+# if st.button("Classify"):
+#     if user_input.strip() == "":
+#         st.warning("Please enter some text.")
+#     else:
+#         inputs = tokenizer(
+#             user_input,
+#             return_tensors="tf",
+#             padding='max_length',
+#             truncation=True,
+#             max_length=MAX_LENGTH
+#         )
+
+#         prediction = classifier.predict({
+#             "input_ids": inputs["input_ids"],
+#             "attention_mask": inputs["attention_mask"],
+#         })
+
+#         confidence = prediction.item()
+#         label = "Real" if confidence > 0.5 else "Fake"
+#         st.success(f"Prediction: **{label}** ({confidence:.2%} confidence) | raw confidence: {confidence}")
+
+#----------------------------------------------------------------------------------------------------------
+st.set_page_config(
+    page_title="ADE News Detections",
+    layout="centered",
+    initial_sidebar_state="auto"
+)
+
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #2e2e2e;
+        color: white;
+    }
+    .stApp {
+        background-color: #2e2e2e;
+        color: white;
+    }
+    textarea {
+        background-color: #444444 !important;
+        color: white !important;
+    }
+    .stTextArea label {
+        font-size: 20px;
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.title("Fake News Detector (COVID-19 Edition)")
 user_input = st.text_area("Enter a tweet or news snippet:")
 
@@ -69,3 +124,4 @@ if st.button("Classify"):
         confidence = prediction.item()
         label = "Real" if confidence > 0.5 else "Fake"
         st.success(f"Prediction: **{label}** ({confidence:.2%} confidence) | raw confidence: {confidence}")
+
