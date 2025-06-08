@@ -67,5 +67,5 @@ if st.button("Classify"):
         })
 
         confidence = prediction.item()
-        label = "Fake" if confidence > 0.5 else "Real"
+        label = "Real" if confidence > 0.5 else "Fake"
         st.success(f"Prediction: **{label}** ({confidence:.2%} confidence) | raw confidence: {confidence}")
