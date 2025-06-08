@@ -142,7 +142,7 @@ if st.button("Classify"):
             margin-top: 20px;
         '>
             Prediction: <strong>{label}!</strong><br>
-            Confidence: {confidence:.2%}
+            Confidence (Real): {confidence:.2%}
         </div>
         """, unsafe_allow_html=True)
 
