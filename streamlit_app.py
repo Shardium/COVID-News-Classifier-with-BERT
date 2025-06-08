@@ -131,6 +131,14 @@ user_input = st.text_area(
     placeholder="Example: Vaccines contain microchips to track people..."
 )
 
+st.markdown("""
+    This app detects whether a COVID-19 related news snippet or tweet is **real or fake** using a fine-tuned DistilBERT model.
+
+    - **Model**: DistilBERT-base-uncased  
+    - **Task**: Binary classification (Real vs Fake)  
+    - **Input**: Text snippet (up to 100 tokens)  
+    """)
+
 MAX_LENGTH = 100
 if st.button("Classify"):
     if user_input.strip() == "":
