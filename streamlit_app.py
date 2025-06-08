@@ -5,8 +5,6 @@ from transformers import AutoTokenizer, TFAutoModel
 import numpy as np
 import os
 
-#https://drive.google.com/file/d/16Qx4-f2pWq-HQMG4txgXk76aKm8ldyCY/view?usp=sharing
-
 # Rebuild the model architecture
 model = TFAutoModel.from_pretrained("distilbert/distilbert-base-uncased")
 tokenizer = AutoTokenizer.from_pretrained("distilbert/distilbert-base-uncased")
