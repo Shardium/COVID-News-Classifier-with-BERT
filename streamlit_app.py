@@ -38,47 +38,16 @@ dummy_inputs = {
 }
 classifier(dummy_inputs)
 
+# Check if weight file exists or not
 weights_path = "model_weights.h5"
 if os.path.exists(weights_path):
     classifier.load_weights(weights_path)
-    st.success("File is found.")
 else:
-    st.warning("Warning: Weights file not found. Model will produce random outputs.")
-
-
-MAX_LENGTH = 100
-
+    st.warning("Warning: Weights file not found. Model will produce random outputs instead.")
 
 #---------------------------------------------------------------------------------------------------
 
-
 # UI
-# st.title("Fake News Detector (COVID-19 Edition)")
-# user_input = st.text_area("Enter a tweet or news snippet:")
-
-# if st.button("Classify"):
-#     if user_input.strip() == "":
-#         st.warning("Please enter some text.")
-#     else:
-#         inputs = tokenizer(
-#             user_input,
-#             return_tensors="tf",
-#             padding='max_length',
-#             truncation=True,
-#             max_length=MAX_LENGTH
-#         )
-
-#         prediction = classifier.predict({
-#             "input_ids": inputs["input_ids"],
-#             "attention_mask": inputs["attention_mask"],
-#         })
-
-#         confidence = prediction.item()
-#         label = "Real" if confidence > 0.5 else "Fake"
-#         st.success(f"Prediction: **{label}** ({confidence:.2%} confidence) | raw confidence: {confidence}")
-
-#----------------------------------------------------------------------------------------------------------
-
 st.markdown(
     """
     <style>
@@ -103,11 +72,10 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.markdown("Test text — should be white on dark background")
-
 st.title("Fake News Detector (COVID-19 Edition)")
 user_input = st.text_area("Enter a tweet or news snippet:")
 
+MAX_LENGTH = 100
 if st.button("Classify"):
     if user_input.strip() == "":
         st.warning("Please enter some text.")
