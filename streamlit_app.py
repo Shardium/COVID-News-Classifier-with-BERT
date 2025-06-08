@@ -152,5 +152,10 @@ st.markdown("""
         Built using Streamlit | ⚠️ Please verify important info from trusted sources!
     </p>
 """, unsafe_allow_html=True)
-st.markdown("Hi")
-st.markdown("Click [here](https://github.com/Shardium/COVID-News-Classifier-with-BERT) to visit Hugging Face!")
+
+# st.markdown("Click [here](https://github.com/Shardium/COVID-News-Classifier-with-BERT) to visit Hugging Face!")
+
+st.markdown(
+    '<a href="https://github.com/Shardium/COVID-News-Classifier-with-BERT" style="color: #4ecdc4; text-decoration: none;" target="_blank">Label</a>',
+    unsafe_allow_html=True
+)
