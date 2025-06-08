@@ -74,8 +74,8 @@ else:
 st.markdown("""
     <style>
     .stApp {
-        background-color: #1e1e1e;
-        color: #f5f5f5;
+        background-color: #2e2e2e;
+        color: white;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     textarea {
@@ -116,8 +116,9 @@ st.markdown("""
 st.title("COVID-19 Fake News Detector")
 
 st.markdown("""
-    This app detects whether a COVID-19 related news snippet is **real or fake** using a fine-tuned DistilBERT model.
-    **Input**: Text snippet (up to 100 tokens)
+    <p>This app detects whether a COVID-19 related news snippet is **real or fake** using a fine-tuned DistilBERT model.</p>
+    
+    <p>**Input**: Text snippet (up to 100 tokens)</p>
     <hr>
     """)
 
