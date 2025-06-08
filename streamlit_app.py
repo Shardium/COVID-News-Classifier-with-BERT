@@ -150,6 +150,6 @@ if st.button("Classify"):
 st.markdown("""
     <hr style="margin-top: 50px;">
     <p style='text-align: center; color: grey;'>
-        Built using Streamlit | ⚠️ Please verify important info from trusted sources
+        Built using Streamlit | ⚠️ Please verify important info from trusted sources!
     </p>
 """, unsafe_allow_html=True)
