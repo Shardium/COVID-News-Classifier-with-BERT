@@ -1,5 +1,6 @@
 streamlit
-tensorflow
-transformers
+tensorflow==2.14.0
+keras==2.13.1
+transformers==4.38.0
 scikit-learn
 pandas
