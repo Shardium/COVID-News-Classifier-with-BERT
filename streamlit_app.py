@@ -97,3 +97,9 @@ if st.button("Classify"):
         label = "Real" if confidence > 0.5 else "Fake"
         st.success(f"Prediction: **{label}** ({confidence:.2%} confidence) | raw confidence: {confidence}")
 
+st.markdown("""
+    <hr style="margin-top: 50px;">
+    <p style='text-align: center; color: grey;'>
+        Built using Streamlit | Fine-tuned DistilBERT
+    </p>
+""", unsafe_allow_html=True)
