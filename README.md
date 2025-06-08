@@ -1,19 +1,9 @@
-# 🎈 Blank app template
+# Hallo
 
-A simple Streamlit app template for you to modify!
+This was a little machine learning project I and a few others made in a whim.
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+It's a single-page web application to classify COVID-19 related news given an input of a news snipper by the user.
+Model used was distilbert-base-uncased, which was trained on ~6.4k training dataset from Kaggle.
 
-### How to run it on your own machine
-
-1. Install the requirements
-
-   ```
-   $ pip install -r requirements.txt
-   ```
-
-2. Run the app
-
-   ```
-   $ streamlit run streamlit_app.py
-   ```
+Link to the site: https://bert-covid-news-classifier.streamlit.app/
+<sub>(We are not responsible for inaccurate classifications produced by the model)</sub>
