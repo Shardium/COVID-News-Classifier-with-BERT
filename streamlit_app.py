@@ -112,6 +112,17 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+with st.sidebar:
+    st.header("🧠 About This App")
+    st.markdown("""
+    This app detects whether a COVID-19 related news snippet or tweet is **real or fake** using a fine-tuned DistilBERT model.
+
+    - **Model**: DistilBERT-base-uncased  
+    - **Task**: Binary classification (Real vs Fake)  
+    - **Input**: Text snippet (up to 100 tokens)  
+
+    ⚠️ Please verify important info from trusted sources!
+    """)
 
 st.title("COVID-19 Fake News Detector")
 user_input = st.text_area(
