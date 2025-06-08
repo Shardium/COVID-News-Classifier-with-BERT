@@ -48,29 +48,6 @@ else:
 #---------------------------------------------------------------------------------------------------
 
 # UI
-# st.markdown(
-#     """
-#     <style>
-#     body {
-#         background-color: #2e2e2e;
-#         color: white;
-#     }
-#     .stApp {
-#         background-color: #2e2e2e;
-#         color: white;
-#     }
-#     textarea {
-#         background-color: #444444 !important;
-#         color: white !important;
-#     }
-#     .stTextArea label {
-#         font-size: 20px;
-#         color: white;
-#     }
-#     </style>
-#     """,
-#     unsafe_allow_html=True
-# )
 st.markdown("""
     <style>
     .stApp {
@@ -173,6 +150,6 @@ if st.button("Classify"):
 st.markdown("""
     <hr style="margin-top: 50px;">
     <p style='text-align: center; color: grey;'>
-        Built using Streamlit
+        Built using Streamlit | ⚠️ Please verify important info from trusted sources
     </p>
 """, unsafe_allow_html=True)
