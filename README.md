@@ -1,5 +1,7 @@
 # Hallo
 
+https://www.kaggle.com/code/actualshard/distilbert-ml-covid-news-clasification
+
 This is a little machine learning project that a few of us put together on a whim.
 
 It's a single-page web application that classifies COVID-19-related news based on a news snippet provided by the user.
